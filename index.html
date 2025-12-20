@@ -352,6 +352,24 @@
             transform: translateY(100%);
             transition: var(--transition);
         }
+
+        .portfolio-overlay .portfolio-icon {
+            background: rgba(255, 255, 255, 0.08);
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 12px;
+            font-size: 1.2rem;
+            color: white;
+        }
+
+        .portfolio-overlay h3 {
+            margin: 0 0 6px 0;
+            font-size: 1.1rem;
+        }
         
         .portfolio-item:hover .portfolio-overlay {
             transform: translateY(0);
@@ -793,6 +811,7 @@
                 <div class="portfolio-item">
                     <img src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Service Bureautique">
                     <div class="portfolio-overlay">
+                        <div class="portfolio-icon"><i class="fas fa-file-alt"></i></div>
                         <h3>Services Administratifs</h3>
                         <p>Traitement de documents, impressions, démarches administratives.</p>
                     </div>
@@ -801,6 +820,7 @@
                 <div class="portfolio-item">
                     <img src="https://images.unsplash.com/photo-1516035069371-29a1b244cc32?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Photographie et Graphisme">
                     <div class="portfolio-overlay">
+                        <div class="portfolio-icon"><i class="fas fa-camera"></i></div>
                         <h3>Photographie & Graphisme</h3>
                         <p>Photos d'identité, conception graphique, formations.</p>
                     </div>
@@ -809,6 +829,7 @@
                 <div class="portfolio-item">
                     <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Vente de produits">
                     <div class="portfolio-overlay">
+                        <div class="portfolio-icon"><i class="fas fa-shopping-bag"></i></div>
                         <h3>Vente de produits</h3>
                         <p>Accessoires informatiques, électroménagers, habits, chaussures.</p>
                     </div>
@@ -817,6 +838,7 @@
                 <div class="portfolio-item">
                     <img src="https://images.unsplash.com/photo-1545239351-1141bd82e8a6?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Produits cosmétiques">
                     <div class="portfolio-overlay">
+                        <div class="portfolio-icon"><i class="fas fa-spa"></i></div>
                         <h3>Produits Cosmétiques</h3>
                         <p>Maquillage, soins du visage et du corps, parfums.</p>
                     </div>
@@ -825,6 +847,7 @@
                 <div class="portfolio-item">
                     <img src="https://images.unsplash.com/photo-1520975698518-6f0c6d8b4f9b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Vente de vêtements">
                     <div class="portfolio-overlay">
+                        <div class="portfolio-icon"><i class="fas fa-tshirt"></i></div>
                         <h3>Vente de Vêtements</h3>
                         <p>Collections pour hommes, femmes et enfants, accessoires de mode.</p>
                     </div>
