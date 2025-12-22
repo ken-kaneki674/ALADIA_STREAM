@@ -611,6 +611,19 @@
                 height: 150px;
             }
         }
+
+        /* Visually hidden (accessible) */
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border: 0;
+        }
     </style>
 </head>
 <body>
@@ -641,7 +654,7 @@
     <!-- Hero Section -->
     <section class="hero" id="accueil">
         <div class="container">
-            <h1>AlLADIA STREAM Services</h1>
+            <h1>ALADIA STREAM Services</h1>
             <p>Votre partenaire multiservices pour tous vos besoins quotidiens et professionnels. De la bureautique à la restauration, en passant par la vente d'accessoires et les services financiers.</p>
             <a href="#services" class="cta-button">Découvrir nos services</a>
         </div>
@@ -780,7 +793,6 @@
                 </div>
                 
                 <div class="service-card">
-                    <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Produits cosmétiques" style="width:100%; height:150px; object-fit:cover; border-radius:8px; margin-bottom:18px;">
                     <div class="service-number">05</div>
                     <div class="service-icon">
                         <i class="fas fa-spa"></i>
@@ -798,7 +810,6 @@
                 </div>
 
                 <div class="service-card">
-                    <img src="https://images.unsplash.com/photo-1520975698518-6f0c6d8b4f9b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Vente de vêtements" style="width:100%; height:150px; object-fit:cover; border-radius:8px; margin-bottom:18px;">
                     <div class="service-number">06</div>
                     <div class="service-icon">
                         <i class="fas fa-tshirt"></i>
@@ -826,47 +837,52 @@
             
             <div class="portfolio-grid">
                 <div class="portfolio-item">
-                    <img src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Service Bureautique">
-                    <div class="portfolio-overlay">
-                        <div class="portfolio-icon"><i class="fas fa-file-alt"></i></div>
-                        <h3>Services Administratifs</h3>
-                        <p>Traitement de documents, impressions, démarches administratives.</p>
+                    <img src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Services bureautiques et administratifs — traitement et impressions de documents">
+                    <div class="portfolio-overlay" aria-label="Services bureautiques et administratifs — Traitement, numérisation et impressions de documents">
+                        <div class="portfolio-icon" aria-hidden="true"><i class="fas fa-file-alt" aria-hidden="true"></i></div>
+                        <h3>Services bureautiques et administratifs</h3>
+                        <span class="sr-only">Détails : traitement, numérisation, impressions, démarches administratives et saisie de données.</span>
+                        <p>Traitement, numérisation et impressions de documents; démarches administratives et saisie de données.</p>
                     </div>
                 </div>
                 
                 <div class="portfolio-item">
-                    <img src="https://images.unsplash.com/photo-1516035069371-29a1b244cc32?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Photographie et Graphisme">
-                    <div class="portfolio-overlay">
-                        <div class="portfolio-icon"><i class="fas fa-camera"></i></div>
-                        <h3>Photographie & Graphisme</h3>
-                        <p>Photos d'identité, conception graphique, formations.</p>
+                    <img src="https://images.unsplash.com/photo-1516035069371-29a1b244cc32?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Photographie et graphisme — photos d'identité, portraits et retouches">
+                    <div class="portfolio-overlay" aria-label="Photographie et graphisme — Photos d'identité, retouches et création graphique">
+                        <div class="portfolio-icon" aria-hidden="true"><i class="fas fa-camera" aria-hidden="true"></i></div>
+                        <h3>Photographie & graphisme</h3>
+                        <span class="sr-only">Détails : photos d'identité, portraits, retouches, création graphique et formations PAO/photographie.</span>
+                        <p>Photos d'identité et portraits, création et retouche graphique, formations en photographie et PAO.</p>
                     </div>
                 </div>
                 
                 <div class="portfolio-item">
-                    <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Vente de produits">
-                    <div class="portfolio-overlay">
-                        <div class="portfolio-icon"><i class="fas fa-shopping-bag"></i></div>
+                    <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Vente de produits — accessoires informatiques, électroménagers, articles de mode">
+                    <div class="portfolio-overlay" aria-label="Vente de produits — Accessoires informatiques, électroménagers et articles de mode">
+                        <div class="portfolio-icon" aria-hidden="true"><i class="fas fa-shopping-bag" aria-hidden="true"></i></div>
                         <h3>Vente de produits</h3>
-                        <p>Accessoires informatiques, électroménagers, habits, chaussures.</p>
+                        <span class="sr-only">Détails : accessoires informatiques, électroménagers, articles de mode, chaussures et accessoires.</span>
+                        <p>Accessoires informatiques, électroménagers, articles de mode et chaussures.</p>
                     </div>
                 </div>
                 
                 <div class="portfolio-item">
-                    <img src="https://images.unsplash.com/photo-1545239351-1141bd82e8a6?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Produits cosmétiques">
-                    <div class="portfolio-overlay">
-                        <div class="portfolio-icon"><i class="fas fa-spa"></i></div>
-                        <h3>Produits Cosmétiques</h3>
-                        <p>Maquillage, soins du visage et du corps, parfums.</p>
+                    <img src="https://images.unsplash.com/photo-1545239351-1141bd82e8a6?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Produits cosmétiques — maquillage et soins visage et corps">
+                    <div class="portfolio-overlay" aria-label="Produits cosmétiques — Maquillage, soins du visage et du corps, parfums">
+                        <div class="portfolio-icon" aria-hidden="true"><i class="fas fa-spa" aria-hidden="true"></i></div>
+                        <h3>Produits cosmétiques</h3>
+                        <span class="sr-only">Détails : maquillage, soins du visage et du corps, parfums et conseils beauté personnalisés.</span>
+                        <p>Maquillage, soins visage et corps, parfums et conseils beauté.</p>
                     </div>
                 </div>
 
                 <div class="portfolio-item">
-                    <img src="https://images.unsplash.com/photo-1520975698518-6f0c6d8b4f9b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Vente de vêtements">
-                    <div class="portfolio-overlay">
-                        <div class="portfolio-icon"><i class="fas fa-tshirt"></i></div>
-                        <h3>Vente de Vêtements</h3>
-                        <p>Collections pour hommes, femmes et enfants, accessoires de mode.</p>
+                    <img src="https://images.unsplash.com/photo-1520975698518-6f0c6d8b4f9b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Vente de vêtements — collections pour hommes, femmes et enfants">
+                    <div class="portfolio-overlay" aria-label="Vente de vêtements — Collections pour hommes, femmes et enfants, retouches et accessoires de mode">
+                        <div class="portfolio-icon" aria-hidden="true"><i class="fas fa-tshirt" aria-hidden="true"></i></div>
+                        <h3>Vente de vêtements</h3>
+                        <span class="sr-only">Détails : collections hommes, femmes et enfants; retouches, accessoires et conseils de style.</span>
+                        <p>Collections pour hommes, femmes et enfants; retouches et accessoires de mode.</p>
                     </div>
                 </div>
             </div>
