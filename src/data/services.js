@@ -76,6 +76,7 @@ export const services = [
         id: 'vetements',
         icon: 'fa-tshirt',
         title: 'Vente de vêtements',
+        link: '/services/vetements',
         description: 'Style et élégance pour toute la famille.',
         items: [
             "Vêtements hommes, femmes et enfants",
@@ -84,5 +85,21 @@ export const services = [
             "Confection et retouches"
         ],
         details: 'Renouvelez votre garde-robe avec notre collection de vêtements et accessoires. Nous proposons également un service de confection et de retouches pour des vêtements parfaitement ajustés.'
+    },
+    {
+        id: 'creation-sites-web',
+        icon: 'fa-laptop-code',
+        title: 'Création de Sites Web et Applications',
+        link: '/services/creation-sites-web',
+        description: 'Votre présence en ligne, professionnelle et percutante.',
+        items: [
+            "Sites Vitrines et E-commerce",
+            "Applications Web et Mobiles",
+            "Refonte de sites existants",
+            "Maintenance et Hébergement",
+            "Optimisation SEO",
+            "Solutions sur mesure"
+        ],
+        details: 'Propulsez votre activité avec une présence numérique forte. Nous concevons des sites web modernes, rapides et optimisés pour le référencement, ainsi que des applications sur mesure pour répondre à vos besoins spécifiques.'
     }
 ];
