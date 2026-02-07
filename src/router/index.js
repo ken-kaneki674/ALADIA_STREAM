@@ -6,6 +6,7 @@ import VenteProduits from '../pages/VenteProduits.vue'
 import Restauration from '../pages/Restauration.vue'
 import Cosmetique from '../pages/Cosmetique.vue'
 import Vetements from '../pages/Vetements.vue'
+import CreationSitesWeb from '../pages/CreationSitesWeb.vue'
 
 const routes = [
     {
@@ -42,6 +43,11 @@ const routes = [
         path: '/services/vetements',
         name: 'Vetements',
         component: Vetements
+    },
+    {
+        path: '/services/creation-sites-web',
+        name: 'CreationSitesWeb',
+        component: CreationSitesWeb
     }
 ]
 
