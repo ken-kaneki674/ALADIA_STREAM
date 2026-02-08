@@ -3,6 +3,7 @@ export const services = [
         id: 'bureautique',
         icon: 'fa-briefcase',
         title: 'Traitement Bureautique & Administratif',
+        link: '/services/bureautique',
         description: 'Services administratifs complets pour particuliers et entreprises.',
         items: [
             'CIP et Carte Biométrique',
@@ -20,6 +21,7 @@ export const services = [
         id: 'graphisme',
         icon: 'fa-camera-retro',
         title: 'Graphisme, Photographie et Formations',
+        link: '/services/graphisme',
         description: 'Capturez vos moments et développez vos compétences.',
         items: [
             "Photo d'identité et Tirage photo complète",
@@ -35,6 +37,7 @@ export const services = [
         id: 'vente-produits',
         icon: 'fa-shopping-bag',
         title: 'Ventes de produits et accessoires',
+        link: '/services/vente-produits',
         description: 'Le meilleur de l\'équipement et des accessoires.',
         items: [
             "Accessoires informatiques",
@@ -48,6 +51,7 @@ export const services = [
         id: 'restauration',
         icon: 'fa-utensils',
         title: 'Restauration rapide et Services Financiers',
+        link: '/services/restauration',
         description: 'Pause gourmande et services financiers de proximité.',
         items: [
             "Fast food",
@@ -62,6 +66,7 @@ export const services = [
         id: 'cosmetique',
         icon: 'fa-magic',
         title: 'Vente de produits cosmétiques',
+        link: '/services/cosmetique',
         description: 'Révélez votre beauté au naturel.',
         items: [
             "Maquillage",
