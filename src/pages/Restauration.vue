@@ -1,7 +1,7 @@
 <template>
-  <ServiceDetail id="restauration" />
+  <RestaurantMenu />
 </template>
 
 <script setup>
-import ServiceDetail from '../components/ServiceDetail.vue';
+import RestaurantMenu from '../components/RestaurantMenu.vue';
 </script>

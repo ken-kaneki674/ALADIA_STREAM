@@ -50,17 +50,65 @@ export const services = [
     {
         id: 'restauration',
         icon: 'fa-utensils',
-        title: 'Restauration rapide et Services Financiers',
+        title: 'Restauration & Bien-être',
         link: '/services/restauration',
-        description: 'Pause gourmande et services financiers de proximité.',
+        description: 'Une cuisine savoureuse et des boissons naturelles pour votre vitalité.',
         items: [
-            "Fast food",
-            "Boissons",
-            "Eaux minérales",
-            "Mobile Money (Moov, Celtis, MTN)",
-            "Yaourts"
+            'Petit-Déjeuner & Encas',
+            'Sandwiches & Shawarma',
+            'Plats de Résistance',
+            'Crêperie Gourmande',
+            'Jus de fruits Naturels'
         ],
-        details: 'Profitez d\'une pause gourmande avec nos services de restauration rapide. Nous facilitons également vos transactions financières avec nos points Mobile Money multi-opérateurs.'
+        categories: [
+            {
+                name: 'Petit-Déjeuner & Encas',
+                items: [
+                    { name: 'Salade de fruits', description: 'Fraîcheur vitaminée' },
+                    { name: 'Yaourt bio', description: 'Onctueux et naturel' }
+                ]
+            },
+            {
+                name: 'Sandwiches Privilège',
+                items: [
+                    { name: 'Sandwich au poulet', description: 'Poulet grillé et crudités' },
+                    { name: 'Sandwich viande hachée', description: 'Bœuf savoureux' },
+                    { name: 'Sandwich à l\'omelette', description: 'Classique et nutritif' },
+                    { name: 'Sandwich aux saucisses', description: 'Gourmand et rapide' },
+                    { name: 'Shawarma', description: 'L\'incontournable oriental' }
+                ]
+            },
+            {
+                name: 'Plats de Résistance',
+                items: [
+                    { 
+                        name: 'Petit pois Royal', 
+                        description: 'Boulettes de viande, saucisses, poulet avec frites, aloco ou riz' 
+                    }
+                ]
+            },
+            {
+                name: 'Crêperie Gourmande',
+                items: [
+                    { name: 'Crêpe Chocolat', description: 'Douceur fondante' },
+                    { name: 'Crêpe Confiture', description: 'Parfum de fruits' },
+                    { name: 'Crêpe Viande hachée', description: 'Option salée' }
+                ]
+            },
+            {
+                name: 'Bien-être & Jus Naturels',
+                items: [
+                    { name: 'Bissap express aux dattes', benefit: 'Riche en fer et booste l\'énergie naturelle.' },
+                    { name: 'Jus de gingembre', benefit: 'Anti-inflammatoire puissant et facilite la digestion.' },
+                    { name: 'Jus de baobab', benefit: 'Exceptionnellement riche en Vitamine C et calcium.' },
+                    { name: 'Jus d\'orange', benefit: 'Tonifiant, renforce le système immunitaire.' },
+                    { name: 'Jus de pomme', benefit: 'Détoxifiant et excellent pour le cœur.' },
+                    { name: 'Jus d\'ananas', benefit: 'Aide à la digestion et brûle les graisses.' },
+                    { name: 'Jus de raisin', benefit: 'Puissant antioxydant pour la santé cardiovasculaire.' }
+                ]
+            }
+        ],
+        details: 'Chez ALADIA STREAM, nous croyons que bien manger est le début du bonheur. Notre menu est conçu pour allier plaisir gustatif et bienfaits pour la santé, avec des produits frais et des jus naturels préparés avec soin.'
     },
     {
         id: 'cosmetique',
