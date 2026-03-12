@@ -10,10 +10,10 @@ export const services = [
             'IFU et Registre de commerce',
             'Impression couleur, noir et blanc',
             'Saisie et scannage de documents',
-            'Plastification et Relure',
+            'Plastification et Reliure',
             'Casier judiciaire et Certificat de nationalité',
-            'Passport',
-            'Acte de Naissance Securise'
+            'Passeport',
+            'Acte de Naissance Sécurisé'
         ],
         details: 'Nous prenons en charge toutes vos démarches administratives avec rapidité et efficacité. Que ce soit pour la constitution de dossiers, la numérisation de vos archives ou l\'impression de vos documents officiels, nous vous garantissons un travail soigné.'
     },
@@ -24,19 +24,19 @@ export const services = [
         link: '/services/graphisme',
         description: 'Capturez vos moments et développez vos compétences.',
         items: [
-            "Photo d'identité et Tirage photo complète",
-            "Traitement d'images et Conceptions graphique",
+            "Photo d'identité et Tirage photo complet",
+            "Traitement d'images et Conception graphique",
             "Formation Bureautique",
             "Formation en graphisme",
             "Formation en Dessin",
-            "Formation : création et conception des sites web"
+            "Formation : création et conception de sites web"
         ],
         details: 'Notre studio de création vous accompagne dans la réalisation de vos supports visuels. Nous proposons également des formations pratiques pour vous permettre de maîtriser les outils numériques et artistiques.'
     },
     {
         id: 'vente-produits',
         icon: 'fa-shopping-bag',
-        title: 'Ventes de produits et accessoires',
+        title: 'Vente de produits et accessoires',
         link: '/services/vente-produits',
         description: 'Le meilleur de l\'équipement et des accessoires.',
         items: [
@@ -55,7 +55,7 @@ export const services = [
         description: 'Une cuisine savoureuse et des boissons naturelles pour votre vitalité.',
         items: [
             'Petit-Déjeuner & Encas',
-            'Sandwiches & Shawarma',
+            'Sandwichs & Shawarma',
             'Plats de Résistance',
             'Crêperie Gourmande',
             'Jus de fruits Naturels'
@@ -69,7 +69,7 @@ export const services = [
                 ]
             },
             {
-                name: 'Sandwiches Privilège',
+                name: 'Sandwichs Privilège',
                 items: [
                     { name: 'Sandwich au poulet', description: 'Poulet grillé et crudités' },
                     { name: 'Sandwich viande hachée', description: 'Bœuf savoureux' },
@@ -83,7 +83,7 @@ export const services = [
                 items: [
                     { 
                         name: 'Petit pois Royal', 
-                        description: 'Boulettes de viande, saucisses, poulet avec frites, aloco ou riz' 
+                        description: 'Boulettes de viande, saucisses, poulet avec frites, alloco ou riz' 
                     }
                 ]
             },

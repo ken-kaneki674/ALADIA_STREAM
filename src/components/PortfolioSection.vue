@@ -126,7 +126,7 @@ const portfolioItems = [
     alt: 'Vente de vêtements',
     icon: 'fa-tshirt',
     title: 'Mode & Style',
-    desc: 'Collections tendances pour hommes, femmes et enfants. Service de retouches express et confection sur mesure par nos couturiers experts.'
+    desc: 'Collections tendances pour hommes, femmes et enfants. Service de retouches expresses et confection sur mesure par nos couturiers experts.'
   }
 ];
 
