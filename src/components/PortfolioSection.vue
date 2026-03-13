@@ -41,7 +41,9 @@
         <!-- Slides -->
         <div class="overflow-hidden py-4 -mx-4 px-4" 
              @touchstart="handleTouchStart" 
-             @touchend="handleTouchEnd">
+             @touchend="handleTouchEnd"
+             @mouseenter="stopAutoPlay"
+             @mouseleave="startAutoPlay">
           <div class="flex gap-8 transition-transform duration-500 ease-out will-change-transform"
             :style="{ transform: `translateX(${-currentIndex * itemWidth}px)` }">
             
@@ -127,11 +129,26 @@ const portfolioItems = [
     icon: 'fa-tshirt',
     title: 'Mode & Style',
     desc: 'Collections tendances pour hommes, femmes et enfants. Service de retouches expresses et confection sur mesure par nos couturiers experts.'
+  },
+  {
+    image: '/IMG/restaurations.png',
+    alt: 'Restauration et Bien-être',
+    icon: 'fa-utensils',
+    title: 'Restauration Gourmande',
+    desc: 'Une cuisine savoureuse et des jus de fruits naturels pour votre vitalité. Sandwiches, shawarmas et plats de résistance cuisinés avec soin.'
+  },
+  {
+    image: '/IMG/creation_web.png',
+    alt: 'Création de sites web',
+    icon: 'fa-laptop-code',
+    title: 'Solutions Numériques',
+    desc: 'Conception de sites vitrines, e-commerce et applications mobiles. Optimisation SEO et maintenance pour une présence en ligne percutante.'
   }
 ];
 
 const currentIndex = ref(0);
 const windowWidth = ref(window.innerWidth);
+const autoPlayInterval = ref(null);
 
 // Determine item width based on screen size (must match CSS w-[350px] or md:w-[300px] + gap)
 // Gap is 32px (gap-8)
@@ -152,17 +169,36 @@ const maxIndex = computed(() => {
 function nextSlide() {
   if (currentIndex.value < maxIndex.value) {
     currentIndex.value++;
+  } else {
+    currentIndex.value = 0; // Infinite loop
   }
 }
 
 function prevSlide() {
   if (currentIndex.value > 0) {
     currentIndex.value--;
+  } else {
+    currentIndex.value = maxIndex.value; // Loop back to end
+  }
+}
+
+function startAutoPlay() {
+  stopAutoPlay();
+  autoPlayInterval.value = setInterval(() => {
+    nextSlide();
+  }, 5000); // Scroll every 5 seconds
+}
+
+function stopAutoPlay() {
+  if (autoPlayInterval.value) {
+    clearInterval(autoPlayInterval.value);
+    autoPlayInterval.value = null;
   }
 }
 
 function goToSlide(index) {
   currentIndex.value = Math.min(index, maxIndex.value);
+  startAutoPlay(); // Reset timer on manual nav
 }
 
 // Touch handling
@@ -171,12 +207,14 @@ let touchEndX = 0;
 
 function handleTouchStart(e) {
   touchStartX = e.changedTouches[0].screenX;
+  stopAutoPlay();
 }
 
 function handleTouchEnd(e) {
   touchEndX = e.changedTouches[0].screenX;
   if (touchStartX - touchEndX > 50) nextSlide();
   if (touchEndX - touchStartX > 50) prevSlide();
+  startAutoPlay();
 }
 
 // Resize handling
@@ -190,9 +228,11 @@ function handleResize() {
 
 onMounted(() => {
   window.addEventListener('resize', handleResize);
+  startAutoPlay();
 });
 
 onUnmounted(() => {
   window.removeEventListener('resize', handleResize);
+  stopAutoPlay();
 });
 </script>
