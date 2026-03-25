@@ -3,12 +3,31 @@
     <!-- Hero Banner -->
     <div class="bg-primary/5 py-12 mb-12 relative overflow-hidden">
         <div class="absolute top-0 right-0 w-64 h-64 bg-primary/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2"></div>
-        <div class="container mx-auto px-4 relative z-10 text-center">
-            <div class="w-20 h-20 mx-auto bg-white rounded-full flex items-center justify-center text-primary text-3xl shadow-lg mb-6">
-                <i :class="['fas', service.icon]"></i>
+        <div class="absolute bottom-0 left-0 w-48 h-48 bg-secondary/10 rounded-full blur-3xl translate-y-1/2 -translate-x-1/2"></div>
+
+        <div class="container mx-auto px-4 relative z-10">
+          <div class="flex flex-col lg:flex-row items-center gap-10 max-w-6xl mx-auto">
+            <!-- Left: Text -->
+            <div class="flex-1 text-center lg:text-left">
+              <div class="w-16 h-16 bg-white rounded-2xl flex items-center justify-center text-primary text-2xl shadow-lg mb-6 mx-auto lg:mx-0">
+                  <i :class="['fas', service.icon]"></i>
+              </div>
+              <h1 class="font-montserrat font-bold text-4xl text-dark mb-4 leading-tight">{{ service.title }}</h1>
+              <p class="text-dark-lighter text-lg max-w-lg mx-auto lg:mx-0">{{ service.description }}</p>
             </div>
-            <h1 class="font-montserrat font-bold text-4xl text-dark mb-4">{{ service.title }}</h1>
-            <p class="text-dark-lighter max-w-2xl mx-auto text-lg">{{ service.description }}</p>
+
+            <!-- Right: Image -->
+            <div v-if="service.image" class="flex-1 max-w-md w-full">
+              <div class="relative rounded-2xl overflow-hidden shadow-2xl group">
+                <img
+                  :src="service.image"
+                  :alt="service.title"
+                  class="w-full h-64 lg:h-72 object-cover transition-transform duration-700 group-hover:scale-105"
+                />
+                <div class="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
+              </div>
+            </div>
+          </div>
         </div>
     </div>
 
@@ -68,6 +87,7 @@
     </div>
   </div>
 </template>
+
 
 <script setup>
 import { computed } from 'vue';

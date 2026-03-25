@@ -7,6 +7,8 @@ import Restauration from '../pages/Restauration.vue'
 import Cosmetique from '../pages/Cosmetique.vue'
 import Vetements from '../pages/Vetements.vue'
 import CreationSitesWeb from '../pages/CreationSitesWeb.vue'
+import LocationProjecteur from '../pages/LocationProjecteur.vue'
+import AideSociale from '../pages/AideSociale.vue'
 
 const routes = [
     {
@@ -48,6 +50,16 @@ const routes = [
         path: '/services/creation-sites-web',
         name: 'CreationSitesWeb',
         component: CreationSitesWeb
+    },
+    {
+        path: '/services/location-projecteur',
+        name: 'LocationProjecteur',
+        component: LocationProjecteur
+    },
+    {
+        path: '/services/aide-sociale',
+        name: 'AideSociale',
+        component: AideSociale
     }
 ]
 

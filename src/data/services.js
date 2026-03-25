@@ -2,6 +2,7 @@ export const services = [
     {
         id: 'bureautique',
         icon: 'fa-briefcase',
+        image: '/IMG/Découvrez le projet réalisé pour la société….jpg',
         title: 'Traitement Bureautique & Administratif',
         link: '/services/bureautique',
         description: 'Services administratifs complets pour particuliers et entreprises.',
@@ -20,6 +21,7 @@ export const services = [
     {
         id: 'graphisme',
         icon: 'fa-camera-retro',
+        image: 'https://images.unsplash.com/photo-1516035069371-29a1b244cc32?auto=format&fit=crop&w=800&q=80',
         title: 'Graphisme, Photographie et Formations',
         link: '/services/graphisme',
         description: 'Capturez vos moments et développez vos compétences.',
@@ -36,6 +38,7 @@ export const services = [
     {
         id: 'vente-produits',
         icon: 'fa-shopping-bag',
+        image: '/IMG/From KlickPin CF Home & Lifestyle _ Cool tech gifts Phone accessories shop Mobile accessories shop.jpg',
         title: 'Vente de produits et accessoires',
         link: '/services/vente-produits',
         description: 'Le meilleur de l\'équipement et des accessoires.',
@@ -50,6 +53,7 @@ export const services = [
     {
         id: 'restauration',
         icon: 'fa-utensils',
+        image: '/IMG/restaurations.png',
         title: 'Restauration & Bien-être',
         link: '/services/restauration',
         description: 'Une cuisine savoureuse et des boissons naturelles pour votre vitalité.',
@@ -113,6 +117,7 @@ export const services = [
     {
         id: 'cosmetique',
         icon: 'fa-magic',
+        image: '/IMG/From KlickPin CF Les Dangers Méconnus des Cosmétiques Périmés  Protégez Votre Peau et Votre Santé en 2025 _ Cosmetique Peau Ombre à paupières.jpg',
         title: 'Vente de produits cosmétiques',
         link: '/services/cosmetique',
         description: 'Révélez votre beauté au naturel.',
@@ -128,6 +133,7 @@ export const services = [
     {
         id: 'vetements',
         icon: 'fa-tshirt',
+        image: '/IMG/From KlickPin CF Tout pour lHomme la Femme et lEnfantdu Bébé a lAdulte chez (wwwfacebookcom_GRAINEDEMARIN) _ Vetements marins Vetements Enfant.jpg',
         title: 'Vente de vêtements',
         link: '/services/vetements',
         description: 'Style et élégance pour toute la famille.',
@@ -142,6 +148,7 @@ export const services = [
     {
         id: 'creation-sites-web',
         icon: 'fa-laptop-code',
+        image: '/IMG/creation_web.png',
         title: 'Création de Sites Web et Applications',
         link: '/services/creation-sites-web',
         description: 'Votre présence en ligne, professionnelle et percutante.',
@@ -154,5 +161,55 @@ export const services = [
             "Solutions sur mesure"
         ],
         details: 'Propulsez votre activité avec une présence numérique forte. Nous concevons des sites web modernes, rapides et optimisés pour le référencement, ainsi que des applications sur mesure pour répondre à vos besoins spécifiques.'
+    },
+    {
+        id: 'location-projecteur',
+        icon: 'fa-video',
+        image: '/IMG/location_projecteur.png',
+        title: 'Location de Projecteur',
+        link: '/services/location-projecteur',
+        description: 'Réussissez votre soutenance avec une présentation parfaite.',
+        items: [
+            'Haute qualité d\'affichage',
+            'Installation rapide',
+            'Assistance technique',
+            'Tarifs accessibles',
+            'Disponible pour soutenances et événements'
+        ],
+        details: 'Louez votre projecteur pour vos soutenances auprès d\'ALADIA STREAM. Nous vous garantissons un matériel de haute qualité avec une installation rapide et une assistance technique tout au long de votre événement, à des tarifs adaptés à tous les budgets.'
+    },
+    {
+        id: 'memoire-soutenance',
+        icon: 'fa-graduation-cap',
+        image: '/IMG/memoire_soutenance.png',
+        title: 'Préparation de Mémoire & Soutenance',
+        link: '/services/bureautique',
+        description: 'Préparez votre soutenance avec un mémoire parfaitement présenté.',
+        items: [
+            'Saisie de mémoire',
+            'Mise en forme professionnelle (Word & LaTeX)',
+            'Correction et relecture',
+            'Sommaire et Table des matières automatique',
+            'Impression et reliure (simple & à anneaux)',
+            'Service rapide — Travail professionnel — Tarifs étudiants'
+        ],
+        details: 'Confiez-nous la saisie, la mise en forme et l\'impression de votre mémoire. Nous proposons une mise en forme professionnelle sous Word et LaTeX, une correction soignée, ainsi qu\'un service d\'impression et de reliure de qualité à des tarifs étudiants.'
+    },
+    {
+        id: 'aide-sociale',
+        icon: 'fa-hand-holding-heart',
+        image: '/IMG/aide_sociale.png',
+        title: 'Aide Sociale & Soutien aux Enfants',
+        link: '/services/aide-sociale',
+        description: 'L\'espoir à portée de main — Votre contribution transforme des vies.',
+        items: [
+            'Cotisation mensuelle',
+            'Don ponctuel',
+            'Parrainage d\'enfants',
+            'Soutien à l\'éducation',
+            'Aide alimentaire',
+            'Accompagnement des enfants défavorisés'
+        ],
+        details: 'ALADIA STREAM s\'engage pour le soutien aux enfants défavorisés à travers l\'éducation, l\'alimentation et l\'accompagnement. Rejoignez notre réseau de solidarité en faisant un don ponctuel, une cotisation mensuelle ou en parrainant un enfant. Ensemble, transformons des vies.'
     }
 ];
