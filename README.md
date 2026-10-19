@@ -1,6 +1,30 @@
-# aladia-stream
+# Aladia Stream
 
-This template should help get you started developing with Vue 3 in Vite.
+**Aladia Stream** est un centre multiservices basé au Bénin, offrant une gamme complète de services pour répondre aux besoins quotidiens et professionnels de sa clientèle.
+
+## 🎯 Services Proposés
+
+- **Bureautique** : Services de secrétariat, rédaction de documents, traitement de texte
+- **Graphisme** : Création de logos, affiches, cartes de visite, design visuel
+- **Photographie** : Services photo professionnels pour événements et portraits
+- **Impression** : Impression de documents, flyers, cartes et supports visuels
+- **Services Financiers** : Transfert d'argent via Mobile Money
+- **Restauration Rapide** : Services de restauration pour une pause déjeuner rapide
+- **Vente d'Accessoires** : Cosmétiques, vêtements et articles divers
+
+## 🛠️ Stack Technique
+
+Ce projet est construit avec les technologies suivantes :
+
+- **Vue 3** : Framework JavaScript progressif pour l'interface utilisateur
+- **Vite** : Outil de build rapide et moderne
+- **Vue Router** : Gestion du routage pour la navigation
+- **TailwindCSS** : Framework CSS utilitaire pour le styling
+- **PostCSS** : Outil de transformation CSS
+
+## 🌐 Site Web
+
+Le site est accessible à l'adresse : [https://aladiastream.com/](https://aladiastream.com/)
 
 ## Recommended IDE Setup
 
