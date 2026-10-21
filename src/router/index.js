@@ -8,6 +8,7 @@ import Cosmetique from '../pages/Cosmetique.vue'
 import Vetements from '../pages/Vetements.vue'
 import CreationSitesWeb from '../pages/CreationSitesWeb.vue'
 import LocationProjecteur from '../pages/LocationProjecteur.vue'
+import MemoireSoutenance from '../pages/MemoireSoutenance.vue'
 import AideSociale from '../pages/AideSociale.vue'
 
 const routes = [
@@ -55,6 +56,11 @@ const routes = [
         path: '/services/location-projecteur',
         name: 'LocationProjecteur',
         component: LocationProjecteur
+    },
+    {
+        path: '/services/memoire-soutenance',
+        name: 'MemoireSoutenance',
+        component: MemoireSoutenance
     },
     {
         path: '/services/aide-sociale',

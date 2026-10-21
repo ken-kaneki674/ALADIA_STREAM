@@ -183,15 +183,14 @@ export const services = [
         icon: 'fa-graduation-cap',
         image: '/IMG/memoire_soutenance.png',
         title: 'Préparation de Mémoire & Soutenance',
-        link: '/services/bureautique',
-        description: 'Préparez votre soutenance avec un mémoire parfaitement présenté.',
+        link: '/services/memoire-soutenance',
+        description: 'Un mémoire parfaitement présenté pour votre soutenance : service rapide, travail professionnel et tarifs étudiants.',
         items: [
             'Saisie de mémoire',
             'Mise en forme professionnelle (Word & LaTeX)',
             'Correction et relecture',
             'Sommaire et Table des matières automatique',
-            'Impression et reliure (simple & à anneaux)',
-            'Service rapide — Travail professionnel — Tarifs étudiants'
+            'Impression et reliure (simple & à anneaux)'
         ],
         details: 'Confiez-nous la saisie, la mise en forme et l\'impression de votre mémoire. Nous proposons une mise en forme professionnelle sous Word et LaTeX, une correction soignée, ainsi qu\'un service d\'impression et de reliure de qualité à des tarifs étudiants.'
     },
