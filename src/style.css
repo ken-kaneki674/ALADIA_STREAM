@@ -4,20 +4,20 @@
   --color-primary: #10B981;
   --color-primary-dark: #059669;
   --color-primary-light: #34D399;
-  
+
   --color-secondary: #3B82F6;
   --color-secondary-dark: #2563EB;
-  
+
   --color-dark: #0F172A;
   --color-dark-light: #1E293B;
   --color-dark-lighter: #334155;
-  
+
   --color-light: #F8FAFC;
   --color-light-muted: #E2E8F0;
-  
+
   --font-poppins: 'Poppins', sans-serif;
   --font-montserrat: 'Montserrat', sans-serif;
-  
+
   --shadow-glass: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
   --shadow-premium: 0 10px 30px -5px rgba(0, 0, 0, 0.1);
 
@@ -26,6 +26,15 @@
   --animate-slide-up: slideUp 0.6s ease-out forwards;
   --animate-bounce-slow: bounce 3s infinite;
   --animate-floating: floating 3s ease-in-out infinite;
+  --animate-float-slow: floatSlow 7s ease-in-out infinite;
+  --animate-gradient-x: gradientX 6s ease infinite;
+  --animate-blob: blob 16s ease-in-out infinite;
+  --animate-shimmer: shimmer 3s ease-in-out infinite;
+  --animate-wiggle: wiggle 0.6s ease-in-out;
+  --animate-shake: shake 0.5s ease-in-out;
+  --animate-scroll-wheel: scrollWheel 1.8s ease-in-out infinite;
+  --animate-word-in: wordIn 0.9s cubic-bezier(0.22, 1, 0.36, 1) both;
+  --animate-pop: pop 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) both;
 
   @keyframes fadeIn {
     0% { opacity: 0; }
@@ -42,6 +51,46 @@
   @keyframes floating {
     0%, 100% { transform: translateY(0); }
     50% { transform: translateY(-10px); }
+  }
+  @keyframes floatSlow {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    50% { transform: translateY(-14px) rotate(2deg); }
+  }
+  @keyframes gradientX {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+  }
+  @keyframes blob {
+    0%, 100% { transform: translate(0, 0) scale(1); }
+    33% { transform: translate(40px, -60px) scale(1.15); }
+    66% { transform: translate(-30px, 30px) scale(0.9); }
+  }
+  @keyframes shimmer {
+    0% { transform: translateX(-150%) skewX(-20deg); }
+    60%, 100% { transform: translateX(250%) skewX(-20deg); }
+  }
+  @keyframes wiggle {
+    0%, 100% { transform: rotate(0deg); }
+    25% { transform: rotate(-12deg); }
+    75% { transform: rotate(12deg); }
+  }
+  @keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    20%, 60% { transform: translateX(-8px); }
+    40%, 80% { transform: translateX(8px); }
+  }
+  @keyframes scrollWheel {
+    0% { opacity: 0; transform: translateY(0); }
+    30% { opacity: 1; }
+    100% { opacity: 0; transform: translateY(12px); }
+  }
+  @keyframes wordIn {
+    0% { opacity: 0; transform: translateY(60%) rotate(4deg); filter: blur(8px); }
+    100% { opacity: 1; transform: none; filter: blur(0); }
+  }
+  @keyframes pop {
+    0% { opacity: 0; transform: scale(0.5); }
+    100% { opacity: 1; transform: scale(1); }
   }
 }
 
@@ -65,7 +114,7 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Components */
 .btn-primary {
-  @apply bg-primary text-white px-6 py-3 rounded-full font-medium transition-all duration-300 
+  @apply bg-primary text-white px-6 py-3 rounded-full font-medium transition-all duration-300
          hover:bg-primary-dark hover:shadow-lg hover:-translate-y-1 transform active:scale-95;
 }
 
@@ -96,14 +145,101 @@ h1, h2, h3, h4, h5, h6 {
     background-color: var(--color-primary-dark);
 }
 
-/* Fade in animation classes */
-.fade-in-section {
-    opacity: 1;
-    transform: translateY(30px);
-    transition: transform 0.8s ease-out;
-    will-change: transform;
+/* Apparitions au scroll (directives v-reveal / v-stagger) */
+.reveal {
+  opacity: 0;
 }
 
-.fade-in-section.is-visible {
-    transform: translateY(0);
+.reveal.is-visible {
+  opacity: 1;
+  animation: var(--reveal-anim) 0.9s cubic-bezier(0.22, 1, 0.36, 1) both;
+  animation-delay: calc(var(--i, 0) * 90ms + var(--reveal-delay, 0ms));
+}
+
+.reveal-up { --reveal-anim: revealUp; }
+.reveal-left { --reveal-anim: revealLeft; }
+.reveal-right { --reveal-anim: revealRight; }
+.reveal-zoom { --reveal-anim: revealZoom; }
+.reveal-blur { --reveal-anim: revealBlur; }
+
+@keyframes revealUp {
+  from { opacity: 0; transform: translateY(40px); }
+  to { opacity: 1; transform: none; }
+}
+@keyframes revealLeft {
+  from { opacity: 0; transform: translateX(-60px); }
+  to { opacity: 1; transform: none; }
+}
+@keyframes revealRight {
+  from { opacity: 0; transform: translateX(60px); }
+  to { opacity: 1; transform: none; }
+}
+@keyframes revealZoom {
+  from { opacity: 0; transform: scale(0.85); }
+  to { opacity: 1; transform: none; }
+}
+@keyframes revealBlur {
+  from { opacity: 0; filter: blur(12px); transform: translateY(20px); }
+  to { opacity: 1; filter: blur(0); transform: none; }
+}
+
+/* Onde au clic (directive v-ripple) */
+.ripple-wave {
+  position: absolute;
+  border-radius: 9999px;
+  background: currentColor;
+  opacity: 0.3;
+  transform: scale(0);
+  pointer-events: none;
+  animation: rippleWave 0.7s ease-out forwards;
+}
+
+@keyframes rippleWave {
+  to { transform: scale(1); opacity: 0; }
+}
+
+/* Halo lumineux qui suit la souris (couplé à v-tilt) */
+.spotlight {
+  position: relative;
+  transform-style: preserve-3d;
+}
+
+.spotlight::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: radial-gradient(450px circle at var(--mx, 50%) var(--my, 50%), rgba(16, 185, 129, 0.12), transparent 45%);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  pointer-events: none;
+}
+
+.spotlight:hover::before {
+  opacity: 1;
+}
+
+/* Soulignement animé des liens */
+.link-underline {
+  background-image: linear-gradient(currentColor, currentColor);
+  background-size: 0% 1px;
+  background-position: 0 100%;
+  background-repeat: no-repeat;
+  transition: background-size 0.35s ease, color 0.3s ease, translate 0.3s ease;
+}
+
+.link-underline:hover {
+  background-size: 100% 1px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  .reveal {
+    opacity: 1 !important;
+  }
 }

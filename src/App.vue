@@ -5,12 +5,12 @@
     <main class="flex-grow">
       <router-view v-slot="{ Component }">
         <transition
-          enter-active-class="transition duration-300 ease-out"
-          enter-from-class="opacity-0 translate-y-4"
-          enter-to-class="opacity-100 translate-y-0"
-          leave-active-class="transition duration-200 ease-in"
-          leave-from-class="opacity-100 translate-y-0"
-          leave-to-class="opacity-0 translate-y-4"
+          enter-active-class="transition duration-500 ease-out"
+          enter-from-class="opacity-0 translate-y-6 scale-[0.98] blur-sm"
+          enter-to-class="opacity-100 translate-y-0 scale-100 blur-0"
+          leave-active-class="transition duration-250 ease-in"
+          leave-from-class="opacity-100 translate-y-0 scale-100 blur-0"
+          leave-to-class="opacity-0 -translate-y-4 scale-[0.98] blur-sm"
           mode="out-in"
         >
           <component :is="Component" />
@@ -20,38 +20,42 @@
     
     <FooterSection />
 
-    <!-- Scroll to Top Button -->
+    <!-- Scroll to Top Button (anneau = progression du scroll) -->
     <Transition
-      enter-active-class="transition duration-300 ease-out"
-      enter-from-class="opacity-0 translate-y-4"
-      enter-to-class="opacity-100 translate-y-0"
+      enter-active-class="transition duration-400 ease-out"
+      enter-from-class="opacity-0 translate-y-6 scale-50"
+      enter-to-class="opacity-100 translate-y-0 scale-100"
       leave-active-class="transition duration-200 ease-in"
-      leave-from-class="opacity-100 translate-y-0"
-      leave-to-class="opacity-0 translate-y-4"
+      leave-from-class="opacity-100 translate-y-0 scale-100"
+      leave-to-class="opacity-0 translate-y-6 scale-50"
     >
       <button 
         v-show="showScrollToTop"
         @click="scrollToTop"
-        class="fixed bottom-8 right-8 bg-primary text-white w-12 h-12 rounded-full shadow-lg z-50 flex items-center justify-center hover:bg-primary-dark transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
+        class="group fixed bottom-8 right-8 bg-primary text-white w-14 h-14 rounded-full shadow-lg shadow-primary/30 z-50 flex items-center justify-center hover:bg-primary-dark hover:-translate-y-1 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
         aria-label="Retour en haut"
       >
-        <i class="fas fa-arrow-up text-lg"></i>
+        <svg class="absolute inset-0 -rotate-90" viewBox="0 0 56 56" aria-hidden="true">
+          <circle cx="28" cy="28" r="25" fill="none" stroke="rgba(255,255,255,0.25)" stroke-width="3" />
+          <circle cx="28" cy="28" r="25" fill="none" stroke="white" stroke-width="3" stroke-linecap="round"
+            :stroke-dasharray="RING_LENGTH" :stroke-dashoffset="RING_LENGTH * (1 - progress)" />
+        </svg>
+        <i class="fas fa-arrow-up text-lg transition-transform duration-300 group-hover:-translate-y-1"></i>
       </button>
     </Transition>
   </div>
 </template>
 
 <script setup>
-import { ref, onMounted, onUnmounted } from 'vue';
+import { computed } from 'vue';
 import NavBar from './components/NavBar.vue';
 import FooterSection from './components/FooterSection.vue';
+import { useScrollProgress } from './composables/useScrollProgress';
 
-// Scroll to top logic
-const showScrollToTop = ref(false);
+const RING_LENGTH = 2 * Math.PI * 25;
 
-const handleScroll = () => {
-  showScrollToTop.value = window.scrollY > 400;
-};
+const { y, progress } = useScrollProgress();
+const showScrollToTop = computed(() => y.value > 400);
 
 const scrollToTop = () => {
   window.scrollTo({
@@ -59,48 +63,4 @@ const scrollToTop = () => {
     behavior: 'smooth'
   });
 };
-
-// Intersection Observer for scroll animations
-const setupObserver = () => {
-  const options = {
-    threshold: 0.15,
-    rootMargin: '0px 0px -50px 0px'
-  };
-
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('is-visible');
-        observer.unobserve(entry.target); // Only animate once
-      }
-    });
-  }, options);
-
-  // Select all sections/components that need animation
-  // Use a MutationObserver to handle dynamically added content (like via router)
-  const observeElements = () => {
-      const sections = document.querySelectorAll('section:not(.fade-in-section)');
-      sections.forEach(section => {
-        section.classList.add('fade-in-section');
-        observer.observe(section);
-      });
-  }
-
-  // Initial observation
-  observeElements();
-
-  // Re-observe when route changes
-  const mutationObserver = new MutationObserver(observeElements);
-  mutationObserver.observe(document.body, { childList: true, subtree: true });
-};
-
-onMounted(() => {
-  window.addEventListener('scroll', handleScroll);
-  // Small delay to ensure DOM is ready
-  setTimeout(setupObserver, 100);
-});
-
-onUnmounted(() => {
-  window.removeEventListener('scroll', handleScroll);
-});
 </script>

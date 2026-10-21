@@ -2,7 +2,7 @@
   <section id="portfolio" class="py-20 sm:py-16 bg-white overflow-hidden">
     <div class="w-[90%] max-w-[1200px] mx-auto px-4">
       <div class="flex flex-col md:flex-row justify-between items-end mb-12 gap-6">
-        <div class="md:max-w-xl">
+        <div class="md:max-w-xl" v-reveal="'left'">
           <h2 class="font-montserrat font-bold text-4xl leading-tight mb-4 text-dark relative inline-block">
             Nos Domaines d'Activité
             <span class="block w-20 h-1.5 bg-primary mt-2 rounded-full"></span>
@@ -13,14 +13,14 @@
         </div>
         
         <!-- Navigation Buttons (Desktop) -->
-        <div class="hidden md:flex gap-3">
+        <div class="hidden md:flex gap-3" v-reveal="'right'">
           <button @click="prevSlide" :disabled="currentIndex === 0"
-            class="w-12 h-12 rounded-full border border-gray-200 flex items-center justify-center text-dark hover:bg-primary hover:text-white hover:border-transparent transition-all duration-300 disabled:opacity-30 disabled:hover:bg-transparent disabled:hover:text-dark">
-            <i class="fas fa-arrow-left"></i>
+            class="group w-12 h-12 rounded-full border border-gray-200 flex items-center justify-center text-dark hover:bg-primary hover:text-white hover:border-transparent hover:scale-110 active:scale-95 transition-all duration-300 disabled:opacity-30 disabled:hover:bg-transparent disabled:hover:text-dark">
+            <i class="fas fa-arrow-left transition-transform duration-300 group-hover:-translate-x-0.5"></i>
           </button>
           <button @click="nextSlide" :disabled="currentIndex >= maxIndex"
-            class="w-12 h-12 rounded-full border border-gray-200 flex items-center justify-center text-dark hover:bg-primary hover:text-white hover:border-transparent transition-all duration-300 disabled:opacity-30 disabled:hover:bg-transparent disabled:hover:text-dark">
-            <i class="fas fa-arrow-right"></i>
+            class="group w-12 h-12 rounded-full border border-gray-200 flex items-center justify-center text-dark hover:bg-primary hover:text-white hover:border-transparent hover:scale-110 active:scale-95 transition-all duration-300 disabled:opacity-30 disabled:hover:bg-transparent disabled:hover:text-dark">
+            <i class="fas fa-arrow-right transition-transform duration-300 group-hover:translate-x-0.5"></i>
           </button>
         </div>
       </div>
@@ -44,11 +44,13 @@
              @touchend="handleTouchEnd"
              @mouseenter="stopAutoPlay"
              @mouseleave="startAutoPlay">
-          <div class="flex gap-8 transition-transform duration-500 ease-out will-change-transform"
+          <div class="flex gap-8 transition-transform duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] will-change-transform"
+            v-stagger="'right'"
             :style="{ transform: `translateX(${-currentIndex * itemWidth}px)` }">
             
             <div v-for="(item, index) in portfolioItems" :key="index"
-              class="flex-shrink-0 w-[350px] md:w-[300px] h-[400px] rounded-2xl overflow-hidden shadow-lg relative group cursor-pointer">
+              class="flex-shrink-0 w-[350px] md:w-[300px] h-[400px] rounded-2xl overflow-hidden shadow-lg relative group cursor-pointer transition-shadow duration-500 hover:shadow-2xl"
+              :class="index === currentIndex ? 'ring-2 ring-primary/70 ring-offset-2' : ''">
               <!-- Image -->
               <img :src="item.image" :alt="item.alt"
                 class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" loading="lazy">
@@ -86,13 +88,20 @@
             :aria-label="`Aller à la slide ${index + 1}`">
           </button>
         </div>
+
+        <!-- Progression de l'autoplay -->
+        <div class="mx-auto mt-4 h-0.5 w-32 bg-gray-100 rounded-full overflow-hidden">
+          <div :key="progressKey" class="h-full bg-primary origin-left autoplay-bar"
+               :class="{ 'is-paused': !isPlaying }"
+               :style="{ animationDuration: `${AUTOPLAY_DELAY}ms` }"></div>
+        </div>
       </div>
     </div>
   </section>
 </template>
 
 <script setup>
-import { ref, computed, onMounted, onUnmounted } from 'vue';
+import { ref, computed, watch, onMounted, onUnmounted } from 'vue';
 
 const portfolioItems = [
   {
@@ -149,6 +158,11 @@ const portfolioItems = [
 const currentIndex = ref(0);
 const windowWidth = ref(window.innerWidth);
 const autoPlayInterval = ref(null);
+const AUTOPLAY_DELAY = 5000;
+const isPlaying = ref(false);
+const progressKey = ref(0); // change de clé = la barre de progression repart de zéro
+
+watch(currentIndex, () => progressKey.value++);
 
 // Determine item width based on screen size (must match CSS w-[350px] or md:w-[300px] + gap)
 // Gap is 32px (gap-8)
@@ -184,9 +198,11 @@ function prevSlide() {
 
 function startAutoPlay() {
   stopAutoPlay();
+  isPlaying.value = true;
+  progressKey.value++;
   autoPlayInterval.value = setInterval(() => {
     nextSlide();
-  }, 5000); // Scroll every 5 seconds
+  }, AUTOPLAY_DELAY);
 }
 
 function stopAutoPlay() {
@@ -194,6 +210,7 @@ function stopAutoPlay() {
     clearInterval(autoPlayInterval.value);
     autoPlayInterval.value = null;
   }
+  isPlaying.value = false;
 }
 
 function goToSlide(index) {
@@ -236,3 +253,16 @@ onUnmounted(() => {
   stopAutoPlay();
 });
 </script>
+
+<style scoped>
+.autoplay-bar {
+  animation: autoplay-fill linear forwards;
+}
+.autoplay-bar.is-paused {
+  animation-play-state: paused;
+}
+@keyframes autoplay-fill {
+  from { transform: scaleX(0); }
+  to { transform: scaleX(1); }
+}
+</style>
